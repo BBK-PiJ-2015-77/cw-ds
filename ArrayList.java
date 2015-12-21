@@ -1,19 +1,53 @@
 public class ArrayList implements List {
 
-	/*
-	 *	@See 'List.java' for a description of these methods
-	 */	
+	private Object[] intArray;
+	private final static int DEFAULT_SIZE = 20;
+	private long numberOfElements;
+	
+	public ArrayList() {
+		intArray = new Object[DEFAULT_SIZE];
+		numberOfElements = 0;
+	}
+	
+	//this class needs to return an object {@see ReturnObject} or an error message as defined in ErrorMessage
 
-	public boolean isEmpty();
+
+	/*
+	 *	{@See List} for a description of these methods
+	 */	
 	
-	public int size();
+	@Override
+	public boolean isEmpty() {
+		return numberOfElements == 0;
+	}
 	
-	public ReturnObject get(int index);
+	@Override
+	public int size() {
+		return 0;
+	}
 	
-	public ReturnObject remove(int index);
+	@Override
+	public ReturnObject get(int index) {
+		if (index < 0 || index >= numberOfElements) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else {
+			return new ReturnObjectImpl(intArray[index]); //? not sure what index is here - it is the parameter
+		}
+	}
 	
-	public ReturnObject add(int index, Object item);
+	@Override
+	public ReturnObject remove(int index) {
+		return null;
+	}
 	
-	public ReturnObject add(Object item);
+	@Override
+	public ReturnObject add(int index, Object item) {
+		return null;
+	}
+	
+	@Override
+	public ReturnObject add(Object item) {
+		return null;
+	}
 
 }
