@@ -16,7 +16,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	}
 	
 	/*
-	 *	@see 'ReturnObject.java' for description of these methods
+	 *	{@see ReturnObject} for description of these methods
 	 */
 	
 	@Override
