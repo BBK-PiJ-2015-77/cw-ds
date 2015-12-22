@@ -67,6 +67,9 @@ public class ArrayList implements List {
 			//this isn't working correctly
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
+			if (isNearlyFull()) {
+				increaseArrayLength();
+			}
 			for(int position = numberOfElements; position > index; position--){
 				intArray[position] = intArray[position - 1];
 			}
@@ -82,6 +85,9 @@ public class ArrayList implements List {
 			//this isn't working correctly
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
+			if (isNearlyFull()) {
+				increaseArrayLength();
+			}
 			intArray[numberOfElements] = item;
 			numberOfElements++;
 			return new ReturnObjectImpl(item);
@@ -91,7 +97,7 @@ public class ArrayList implements List {
 	/**
 	 *	This method will check if the array is nearly full
 	 *	(with the intention of making the array bigger if it is,
-	 *	using the arrayDoubler method)
+	 *	using the increaseArrayLength method)
 	 */
 	
 	public boolean isNearlyFull() {
@@ -102,8 +108,12 @@ public class ArrayList implements List {
 		}
 	}
 	
-	public boolean arrayDoubler {
-		Object[] newArray = new Object[
+	public void increaseArrayLength() {
+		Object[] newArray = new Object[numberOfElements * 2];
+		for (int i = 0; i < numberOfElements; i++) {
+			newArray[i] = intArray[i];
+		}
+		intArray = newArray;
 	}
 
 }
