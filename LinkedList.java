@@ -17,7 +17,16 @@ public class LinkedList implements List {
 	}
 	
 	public ReturnObject get(int index){
-		return null;
+		if (index < 0 || index >= size) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else {
+			Node position = head;
+			for (int i = 0; i < index; i++) {
+				position = position.getNext();
+				i++;
+			}
+			return new ReturnObjectImpl(position.getValue());
+		}
 	}
 	
 	public ReturnObject remove(int index){
@@ -25,8 +34,28 @@ public class LinkedList implements List {
 	}
 	
 	public ReturnObject add(int index, Object item){
-		return null;
+		if (index < 0 || index >= size) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (item == null) {
+			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		} else if (head == null) {
+			head = new Node(item);
+			size++;
+			return new ReturnObjectImpl(item);
+		} else {
+			Node newNode = head;
+			Node position = head;
+			for (int i = 0; i < index; i++) {
+				position = position.getNext();
+				i++;
+			}
+			newNode.setNext(position.getNext());
+			position.setNext(newNode);
+			size++;
+			return new ReturnObjectImpl(item);
+		}
 	}
+	
 	
 	public ReturnObject add(Object item){
 		if (item == null) {
