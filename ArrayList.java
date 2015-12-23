@@ -1,8 +1,8 @@
 public class ArrayList implements List {
 
-	private Object[] intArray;
-	private final static int DEFAULT_SIZE = 20;
-	private int numberOfElements;
+	protected Object[] intArray;
+	protected final static int DEFAULT_SIZE = 20;
+	protected int numberOfElements;
 	
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
