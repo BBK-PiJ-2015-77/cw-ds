@@ -23,7 +23,6 @@ public class LinkedList implements List {
 			Node position = head;
 			for (int i = 0; i < index; i++) {
 				position = position.getNext();
-				i++;
 			}
 			return new ReturnObjectImpl(position.getValue());
 		}
@@ -43,14 +42,15 @@ public class LinkedList implements List {
 			size++;
 			return new ReturnObjectImpl(item);
 		} else {
-			Node newNode = head;
-			Node position = head;
+			Node newNode = new Node(item);
+			Node newPlus = head;
+			Node newMinus = null;
 			for (int i = 0; i < index; i++) {
-				position = position.getNext();
-				i++;
+				newMinus = newPlus;
+				newPlus = newPlus.getNext();
 			}
-			newNode.setNext(position.getNext());
-			position.setNext(newNode);
+			newNode.setNext(newPlus);
+			newMinus.setNext(newNode);
 			size++;
 			return new ReturnObjectImpl(item);
 		}
