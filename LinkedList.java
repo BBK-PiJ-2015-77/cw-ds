@@ -19,6 +19,8 @@ public class LinkedList implements List {
 	public ReturnObject get(int index){
 		if (index < 0 || index >= size) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (size == 0){
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
 			Node position = head;
 			for (int i = 0; i < index; i++) {
