@@ -7,15 +7,18 @@ public class LinkedList implements List {
 		head = null;
 		size = 0;
 	}
-
+	
+	@Override
 	public boolean isEmpty(){
 		return size == 0;
 	}
 	
+	@Override
 	public int size(){
 		return size;
 	}
 	
+	@Override
 	public ReturnObject get(int index){
 		if (index < 0 || index >= size) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
@@ -30,16 +33,36 @@ public class LinkedList implements List {
 		}
 	}
 	
+	@Override
 	public ReturnObject remove(int index){
-		return null;
+		if (index < 0 || index >= size) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (size == 0){
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index == 0) {
+			head = head.getNext();
+			size--;
+			return new ReturnObjectImpl(head.getValue());
+		} else {
+			Node position = head;
+			Node positionMinus = null;
+			for (int i = 0; i < index; i++) {
+				positionMinus = position;
+				position = position.getNext();
+			}
+			positionMinus.setNext(position.getNext());
+			size--;
+			return new ReturnObjectImpl(position.getValue());
+		}
 	}
-	
+
+	@Override
 	public ReturnObject add(int index, Object item){
 		if (index < 0 || index >= size) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-		} else if (head == null) {
+		} else if (size == 0) {
 			head = new Node(item);
 			size++;
 			return new ReturnObjectImpl(item);
@@ -58,7 +81,7 @@ public class LinkedList implements List {
 		}
 	}
 	
-	
+	@Override
 	public ReturnObject add(Object item){
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
