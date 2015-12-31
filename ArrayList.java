@@ -28,10 +28,10 @@ public class ArrayList implements List {
 	
 	@Override
 	public ReturnObject get(int index) {
-		if (index < 0 || index >= numberOfElements) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (numberOfElements == 0) {
+		if (numberOfElements == 0) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index < 0 || index >= numberOfElements) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(intArray[index]);
 		}
