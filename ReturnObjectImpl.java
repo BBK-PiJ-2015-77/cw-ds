@@ -15,7 +15,7 @@ public class ReturnObjectImpl implements ReturnObject {
 		this.obj = null;
 	}
 	
-	/*
+	/**
 	 *	{@see ReturnObject} for description of these methods
 	 */
 	
