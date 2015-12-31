@@ -35,10 +35,10 @@ public class LinkedList implements List {
 	
 	@Override
 	public ReturnObject remove(int index){
-		if (index < 0 || index >= size) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (size == 0){
+		if (size == 0){
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index < 0 || index >= size) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (index == 0 && size != 1) {
 			head = head.getNext();
 			size--;
