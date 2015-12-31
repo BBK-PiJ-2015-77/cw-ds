@@ -29,11 +29,21 @@ public class StackImpl extends AbstractStack {
     }
     
     public ReturnObject top() {
-    	return lList.get(size);
+    	if (lList.size() == 0) {
+    		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+    	} else {
+    		return lList.get(lList.size() - 1);
+    	}
     }
     
     public ReturnObject pop() {
-    	return null;
+    	if (lList.size() == 0) {
+    		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+    	} else {
+    		ReturnObject delObject = lList.get(lList.size()-1);
+    		lList.remove(lList.size()-1);
+    		return delObject;
+    	}
     }
 	
 }
