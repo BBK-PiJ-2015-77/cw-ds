@@ -41,10 +41,10 @@ public class ArrayList implements List {
 	
 	@Override
 	public ReturnObject remove(int index) {
-		if (index < 0 || index >= numberOfElements) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (numberOfElements == 0) {
+		if (numberOfElements == 0) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index < 0 || index >= numberOfElements) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			/**
 			 *	created a 'holder' (delObject) for the item being deleted
