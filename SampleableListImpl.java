@@ -4,6 +4,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
 	 *	{@see SampleableList} for description of the method below
 	 */
 	
+	
 	public SampleableList sample() {
 		SampleableList sample = new SampleableListImpl();
 		int length = size();
