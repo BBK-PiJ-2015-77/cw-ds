@@ -1,20 +1,18 @@
 public class StackImpl extends AbstractStack {
 
-	//AbstractStack is an abstract class - not an interface
-    
-    // there is a list already accessible from AbstractStack:
-    // protected List internalList;
+	/**
+	 *	{@see AbstractStack}  and {@see Stack} for a 
+	 *	description of the methods below
+	 *
+	 *	I have used a {@see LinkedList} as the underlying
+	 *	data structure
+	 */
     
     List lList = new LinkedList();
 	
 	public StackImpl(List lList) {
 		super(lList);
 	}
-    
-    /**
-     *	Must implement the methods of {@see Stack} that have been
-     *	left out of the abstract class {@see AbstractStack}.
-     */
     
     public boolean isEmpty(){
     	return lList.isEmpty();
