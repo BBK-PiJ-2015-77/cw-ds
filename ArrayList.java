@@ -1,9 +1,8 @@
 public class ArrayList implements List {
 	
 	/**
-	 *	Some of the methods below will return a 'ReturnObject' - 
-	 *	this will either return an object or an error message, 
-	 *	{@see ReturnObject} for a  full description of this class.
+	 *	Some of the methods below will return a {@see ReturnObject} - 
+	 *	this will either return an object or an {@see ErrorMesage}, 
 	 */
 	
 	protected Object[] objArray;
@@ -40,7 +39,6 @@ public class ArrayList implements List {
 		}
 	}
 	
-	//doesn't work when removing index 0
 	@Override
 	public ReturnObject remove(int index) {
 		if (index < 0 || index >= numberOfElements) {
@@ -50,8 +48,7 @@ public class ArrayList implements List {
 		} else {
 			/**
 			 *	created a 'holder' (delObject) for the item being deleted
-			 *	so that the removal of the item can be carried out and
-			 *	then this item can be returned.
+			 *	as it won't be accesible to return once it's deleted.
 			 */
 			
 			ReturnObject delObject = new ReturnObjectImpl(objArray[index]);
@@ -69,7 +66,6 @@ public class ArrayList implements List {
 		if (index < 0 || index >= numberOfElements) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (item == null) {
-			//this isn't working correctly
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
 			if (isNearlyFull()) {
@@ -87,7 +83,6 @@ public class ArrayList implements List {
 	@Override
 	public ReturnObject add(Object item) {
 		if (item == null) {
-			//this isn't working correctly
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
 			if (isNearlyFull()) {
@@ -102,7 +97,7 @@ public class ArrayList implements List {
 	/**
 	 *	This method will check if the array is nearly full
 	 *	(with the intention of making the array bigger if it is,
-	 *	using the increaseArrayLength method)
+	 *	using the increaseArrayLength() method)
 	 */
 	
 	public boolean isNearlyFull() {
