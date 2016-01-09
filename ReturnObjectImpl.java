@@ -3,8 +3,6 @@ public class ReturnObjectImpl implements ReturnObject {
 	private Object obj;
 	private ErrorMessage em;
 	
-	//@ param?
-	
 	public ReturnObjectImpl(Object obj) {
 		this.obj = obj;
 		this.em = ErrorMessage.NO_ERROR;
@@ -16,7 +14,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	}
 	
 	/**
-	 *	{@see ReturnObject} for description of these methods
+	 *	{@see ReturnObject} for description of the methods below
 	 */
 	
 	@Override
