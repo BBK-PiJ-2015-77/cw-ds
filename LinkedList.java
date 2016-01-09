@@ -1,5 +1,10 @@
 public class LinkedList implements List {
-
+	
+	/**
+	 *	Some of the methods below will return a {@see ReturnObject} - 
+	 *	this will either return an object or an {@see ErrorMesage}, 
+	 */
+	
 	protected Node head;
 	protected int size;
 	
@@ -7,6 +12,10 @@ public class LinkedList implements List {
 		head = null;
 		size = 0;
 	}
+	
+	/**
+	 *	{@See List} for a full description of these methods
+	 */	
 	
 	@Override
 	public boolean isEmpty(){
