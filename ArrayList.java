@@ -1,19 +1,22 @@
 public class ArrayList implements List {
-
-	protected Object[] intArray;
+	
+	/**
+	 *	Some of the methods below will return a 'ReturnObject' - 
+	 *	this will either return an object or an error message, 
+	 *	{@see ReturnObject} for a  full description of this class.
+	 */
+	
+	protected Object[] objArray;
 	protected final static int DEFAULT_SIZE = 20;
 	protected int numberOfElements;
 	
 	public ArrayList() {
-		intArray = new Object[DEFAULT_SIZE];
+		objArray = new Object[DEFAULT_SIZE];
 		numberOfElements = 0;
 	}
-	
-	//this class needs to return an object {@see ReturnObject} or an error message as defined in ErrorMessage
-
 
 	/**
-	 *	{@See List} for a description of these methods
+	 *	{@See List} for a full description of these methods
 	 */	
 	
 	@Override
@@ -33,7 +36,7 @@ public class ArrayList implements List {
 		} else if (index < 0 || index >= numberOfElements) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
-			return new ReturnObjectImpl(intArray[index]);
+			return new ReturnObjectImpl(objArray[index]);
 		}
 	}
 	
@@ -51,9 +54,9 @@ public class ArrayList implements List {
 			 *	then this item can be returned.
 			 */
 			
-			ReturnObject delObject = new ReturnObjectImpl(intArray[index]);
+			ReturnObject delObject = new ReturnObjectImpl(objArray[index]);
 			for (int position = index; position < numberOfElements; position++) {
-				intArray[position] = intArray[position + 1];
+				objArray[position] = objArray[position + 1];
 			}
 			numberOfElements--;
 			return delObject;
@@ -73,11 +76,11 @@ public class ArrayList implements List {
 				increaseArrayLength();
 			}
 			for(int position = numberOfElements; position > index; position--){
-				intArray[position] = intArray[position - 1];
+				objArray[position] = objArray[position - 1];
 			}
-			intArray[index] = item;
+			objArray[index] = item;
 			numberOfElements++;
-			return new ReturnObjectImpl(intArray[index]);
+			return new ReturnObjectImpl(objArray[index]);
 		}
 	}
 	
@@ -90,7 +93,7 @@ public class ArrayList implements List {
 			if (isNearlyFull()) {
 				increaseArrayLength();
 			}
-			intArray[numberOfElements] = item;
+			objArray[numberOfElements] = item;
 			numberOfElements++;
 			return new ReturnObjectImpl(item);
 		}
@@ -113,9 +116,9 @@ public class ArrayList implements List {
 	public void increaseArrayLength() {
 		Object[] newArray = new Object[numberOfElements * 2];
 		for (int i = 0; i < numberOfElements; i++) {
-			newArray[i] = intArray[i];
+			newArray[i] = objArray[i];
 		}
-		intArray = newArray;
+		objArray = newArray;
 	}
 
 }
