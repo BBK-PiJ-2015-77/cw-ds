@@ -28,6 +28,5 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 			return newList;
 		}
 	}
-	//does the new list have to meet all the error criteria as the first list?
 
 }
