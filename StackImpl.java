@@ -7,7 +7,7 @@ public class StackImpl extends AbstractStack {
 	 *	I have used a {@see LinkedList} as the underlying
 	 *	data structure
 	 */
-    
+
     List lList = new LinkedList();
 	
 	public StackImpl(List lList) {
