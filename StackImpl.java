@@ -14,18 +14,22 @@ public class StackImpl extends AbstractStack {
 		super(lList);
 	}
     
+    @Override
     public boolean isEmpty(){
     	return lList.isEmpty();
     }
     
+    @Override
     public int size() {
     	return lList.size();
     }
     
+    @Override
     public void push(Object item) {
     	lList.add(item);
     }
     
+    @Override
     public ReturnObject top() {
     	if (lList.size() == 0) {
     		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -34,6 +38,7 @@ public class StackImpl extends AbstractStack {
     	}
     }
     
+    @Override
     public ReturnObject pop() {
     	if (lList.size() == 0) {
     		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
