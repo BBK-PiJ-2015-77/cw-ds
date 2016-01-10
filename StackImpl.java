@@ -4,13 +4,9 @@ public class StackImpl extends AbstractStack {
 	 *	{@see AbstractStack}  and {@see Stack} for a 
 	 *	description of the methods below
 	 *
-	 *	I have used a {@see LinkedList} as the underlying
-	 *	data structure
+	 *	The List 'internalList' is a protected List from
+	 *	{@see AbstractStack}
 	 */
-
-    //List lList = new LinkedList();
-    
-    //internalList is accessible from abstract stack
 	
 	public StackImpl(List list) {
 		super(list);
