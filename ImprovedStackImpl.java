@@ -1,5 +1,10 @@
 public class ImprovedStackImpl implements ImprovedStack {
 	
+	/**
+ 	 *	{@see Stack} for a description of the methods below,
+ 	 *	unless indicated otherwise
+	 */
+	
 	protected List improvedStack;
 	
 	public ImprovedStackImpl(List list) {
@@ -38,8 +43,7 @@ public class ImprovedStackImpl implements ImprovedStack {
 	}
 	
 	/**
-	 * Classes implementing this interface must use a {@see List} as the
- 	 * underlying data structure to store the elements on the stack. 
+ 	 *	{@see AbstractStack} for a description of the methods below
 	 */
 	 
 	public ImprovedStack reverse() {
@@ -53,15 +57,6 @@ public class ImprovedStackImpl implements ImprovedStack {
 		return reverseStack;
 	}
 	
-	/**
-	 * Removes the given object from the stack if it is
-	 * there. Multiple instances of the object are all removed.
-	 *
-	 * Classes implementing this method must use method .equals() to
-	 * check whether the item is in the stack or not.
-	 * 
-	 * @param object the object to remove
-	 */
 	public void remove(Object object) {
 		int length = improvedStack.size();
 		for (int i = 0; i < length; i++) {
