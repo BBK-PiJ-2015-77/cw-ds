@@ -8,43 +8,45 @@ public class StackImpl extends AbstractStack {
 	 *	data structure
 	 */
 
-    List lList = new LinkedList();
+    //List lList = new LinkedList();
+    
+    //internalList is accessible from abstract stack
 	
-	public StackImpl(List lList) {
-		super(lList);
+	public StackImpl(List list) {
+		super(list);
 	}
     
     @Override
     public boolean isEmpty(){
-    	return lList.isEmpty();
+    	return internalList.isEmpty();
     }
     
     @Override
     public int size() {
-    	return lList.size();
+    	return internalList.size();
     }
     
     @Override
     public void push(Object item) {
-    	lList.add(item);
+    	internalList.add(item);
     }
     
     @Override
     public ReturnObject top() {
-    	if (lList.size() == 0) {
+    	if (internalList.size() == 0) {
     		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
     	} else {
-    		return lList.get(lList.size() - 1);
+    		return internalList.get(internalList.size() - 1);
     	}
     }
     
     @Override
     public ReturnObject pop() {
-    	if (lList.size() == 0) {
+    	if (internalList.size() == 0) {
     		return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
     	} else {
-    		ReturnObject delObject = lList.get(lList.size()-1);
-    		lList.remove(lList.size()-1);
+    		ReturnObject delObject = internalList.get(internalList.size()-1);
+    		internalList.remove(internalList.size()-1);
     		return delObject;
     	}
     }
